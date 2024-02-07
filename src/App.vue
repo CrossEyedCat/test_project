@@ -63,12 +63,6 @@
           <span v-else>{{ slotProps.data.state }}</span>
         </template>
       </Column>
-      <Column field="longitude" header="Longitude" class="min-width-200">
-        <template #body="slotProps">
-          <Skeleton v-if="loading" width="100%" height="1rem" />
-          <span v-else>{{ slotProps.data.longitude }}</span>
-        </template>
-      </Column>
       <Column field="gender" header="Gender" class="min-width-200">
         <template #body="slotProps">
           <Skeleton v-if="loading" width="100%" height="1rem" />
@@ -103,6 +97,12 @@
         <template #body="slotProps">
           <Skeleton v-if="loading" width="100%" height="1rem" />
           <span v-else>{{ slotProps.data.latitude }}</span>
+        </template>
+      </Column>
+      <Column field="longitude" header="Longitude" class="min-width-200">
+        <template #body="slotProps">
+          <Skeleton v-if="loading" width="100%" height="1rem" />
+          <span v-else>{{ slotProps.data.longitude }}</span>
         </template>
       </Column>
     </DataTable>
@@ -155,7 +155,6 @@ export default {
       }
       else{
         this.first = 0;
-        this.pageSize = 5;
       }
       console.log("1", this.first, this.pageSize, this.search)
       axios.get(this.apiUrl, {
